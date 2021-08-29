@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网上办事大厅-校园通行卡</title>
+    <script>
+        function dateTime() {
+            var today = new Date();
+            var date = (today.getMonth() + 1) + '月' + today.getDate() + '日';
+            var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+            var dateTime = date + ' ' + time;
+            document.getElementById("dateTime").innerHTML = dateTime;
+        };
+    </script>
+</head>
+
+<body style="background: #3ab157;">
+    <img src="./bg.png" style="width:100%; position: absolute; top: 0vw; left: 0vw;">
+    <img id="pic" style="width: 35.1%; position: absolute; top: 36.7vw; left: 32.45vw; border-radius: 3.3vw;">
+    <img src="./frame.gif"
+        style="width:40vw; position: absolute; top: 33.2vw; left: 30vw; filter: hue-rotate(90.9deg) brightness(1.55) contrast(0.55);">
+    <div style="position: absolute; top: 15.8vw; left: 40vw;font-size:4.3vw; color: #4eae6d;font-weight: 550;">
+        <p id="dateTime"></p>
+    </div>
+    <div
+        style="position: absolute; top: 89.7vw; left: 44vw; width: 10vw; font-size: 3.25vw; font-family: sans-serif; text-shadow: 0 0 0.8px #000; color: transparent;">
+        <p id="name" style="background: white;"></p>
+    </div>
+    <div
+        style="position: absolute; top: 94.8vw; left: 44vw;font-size: 3.4vw; font-family: sans-serif; text-shadow: 0 0 0.8px #000; color: transparent;">
+        <p id="gender" style="background: white;"></p>
+    </div>
+    <div
+        style="position: absolute; top: 100.5vw; left: 44.5vw; width: 20vw; font-size: 3.3vw; font-family: sans-serif; text-shadow: 0 0 0.8px #000; color: transparent;">
+        <p id="id" style="background: white;"></p>
+    </div>
+    <div
+        style="position: absolute; top: 105.3vw; left: 44.5vw; width: 34vw; font-size: 3.3vw; font-family: sans-serif; text-shadow: 0 0 0.8px #000; color: transparent;">
+        <p id="department" style="background: white;"></p>
+    </div>
+    <script>
+        // ?n=xxx&g=x&id=xxxx
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const name = urlParams.get('n');
+        const gender = urlParams.get('g');
+        const id = urlParams.get('i');
+        const department = urlParams.get('d');
+        document.getElementById("pic").src = "./pics/" + name + ".jpg"
+        document.getElementById("name").innerHTML = name;
+        document.getElementById("gender").innerHTML = gender;
+        document.getElementById("id").innerHTML = id;
+        document.getElementById('department').innerHTML = department;
+    </script>
+    <script>
+        dateTime();
+        setInterval(dateTime, 1000);
+    </script>
+</body>
+
+</html>
