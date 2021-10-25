@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>通行码</title>
+    <script>
+        function dateTime() {
+            var today = new Date();
+            var date = today.getFullYear() + '-' + ('0' + (today.getMonth() + 1)).slice(-2) + '-' + ('0' + today.getDate()).slice(-2) + '';
+            var time = ('0' + today.getHours()).slice(-2) + ":" + ('0' + today.getMinutes()).slice(-2) + ":" + ('0' + today.getSeconds()).slice(-2);
+            var dateTime = date + '  ' + time;
+            document.getElementById("dateTime").innerHTML = dateTime;
+        };
+    </script>
+</head>
+
+<body style="background: #f2f2f2;">
+    <img src="./code_bg.jpg" style="width:100%; position: absolute; top: 0vw; left: 0vw;">
+    <div style="position: absolute; top: 44.7vw; left: 41.3vw;font-size:4vw; color: #214282;font-family: sans-serif;background-color: white;">
+        <p id="dateTime"></p>
+    </div>
+    <script>
+        dateTime();
+        setInterval(dateTime, 1000);
+    </script>
+</body>
+
+</html>
