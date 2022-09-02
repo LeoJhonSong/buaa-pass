@@ -12,7 +12,7 @@ const urlParams = new URLSearchParams(queryString);
 const name = urlParams.get("n");
 const gender = urlParams.get("g");
 const id = urlParams.get("i");
-const avatar = "/imgs/avatar/" + urlParams.get("a") + ".jpg";
+const avatar = "/avatar/" + urlParams.get("a") + ".jpg";
 var today = new Date();
 const scanTime = today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate() + " " + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
 </script>
