@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>通行卡</title>
+  <title>校园卡</title>
   <style>
     button {
       border: none;
@@ -71,7 +71,6 @@
 
     #enterMain {
       background: #60ce6d;
-      display: none;
     }
 
     .enter-text {
@@ -83,15 +82,15 @@
     }
 
     #enter-name {
-      bottom: 88.3vw
+      bottom: 92.3vw
     }
 
     #enter-gender {
-      bottom: 83vw;
+      bottom: 87.2vw;
     }
 
     #enter-id {
-      bottom: 78vw;
+      bottom: 82.4vw;
     }
 
     .enter-code {
@@ -111,10 +110,10 @@
 
     #enter-img {
       position: absolute;
-      width: 22.2vw;
-      left: 49.8vw;
+      width: 23.9vw;
+      left: 50vw;
       transform: translateX(-50%);
-      bottom: 167.85vw;
+      bottom: 164.2vw;
       display: block;
     }
 
@@ -132,7 +131,7 @@
     #enter-avatar {
       position: absolute;
       width: 33.5vw;
-      bottom: 103.5vw;
+      bottom: 100.5vw;
       left: 50vw;
       transform: translateX(-50%);
     }
@@ -140,7 +139,7 @@
     #enter-dateTime {
       position: absolute;
       left: 50vw;
-      bottom: 159vw;
+      bottom: 156vw;
       font-size: 4vw;
       transform: translateX(-50%);
       color: #67ba67;
@@ -149,14 +148,6 @@
 </head>
 
 <body style="width: 100%; height: 100%; margin: 0;">
-  <div class="main" id="passMain">
-    <!-- 通行码页面 -->
-    <img class="pass-code" src="./imgs/passCode.jpg" />
-    <div class="pass-text" id="pass-name"></div>
-    <div class="pass-text" id="pass-id"></div>
-    <div id="pass-dateTime"></div>
-    <button id="enter-button" onclick="enter()"></button>
-  </div>
   <div class="main" id="enterMain">
     <!-- 出入校码页面 -->
     <img class="enter-code" src="./imgs/enterCode.jpg" />
@@ -170,29 +161,19 @@
     <div class="enter-text" id="enter-id"></div>
   </div>
   <script>
-    var isHome = true;
     var isIn = false;
     var today = new Date();
     const scanTime = today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate() + " " + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-    document.getElementById('pass-dateTime').innerHTML = scanTime;
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     const name = urlParams.get("n");
     const gender = urlParams.get("g");
     const id = urlParams.get("i");
     const avatar = urlParams.get("a");
-    document.getElementById('pass-name').innerHTML = name;
-    document.getElementById('pass-id').innerHTML = id;
     document.getElementById('enter-name').innerHTML = name;
     document.getElementById('enter-gender').innerHTML = gender;
     document.getElementById('enter-id').innerHTML = id;
     document.getElementById('enter-avatar').src = './imgs/avatar/' + avatar + '.jpg';
-    function enter() {
-      isHome = false;
-      document.getElementById('passMain').style.display = 'none';
-      document.getElementById('enterMain').style.display = 'block';
-      document.title = '校园卡'
-    }
     function state() {
       isIn = !isIn;
       if (isIn) {
